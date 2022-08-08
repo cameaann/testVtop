@@ -1,0 +1,29 @@
+@import 'fonts.scss';
+
+body{
+    font-family: 'Oswald';
+    font-size: 50px;
+
+    span{
+        color:blue;
+    }
+}
+
+@media (width: 768px) {
+    body{
+        font-size:20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body{
+        background-color: green;
+    }
+}
+
+.logo{
+    width:100px;
+    height: 100px;
+    background: url('../img/logo.png') 0 0 no-repeat;
+}
+
