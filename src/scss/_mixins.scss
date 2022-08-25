@@ -1,0 +1,47 @@
+//MEDIA QUERY MANAGER
+
+/*
+0-600px -Phone
+600-900px -Tablet portrait
+900-1200px -Tablet landscape
+[1200-1800] -normal styles apply
+1800px+ -big desktop
+*/
+
+@mixin response($breakpoint){
+    @if $breakpoint == phone-mini {
+        @media (max-width: 22.5em){ @content;} //360px
+    }
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em){ @content;} //600px
+    }
+    @if $breakpoint == tab-port {
+        @media(max-width:56.25em){ @content; } //900px
+    }
+    @if $breakpoint == tab-land{
+        @media(max-width:75em){ @content; } //1200px
+    }
+    @if $breakpoint == big-desktop{
+        @media(min-width:112.5em){ @content;}//1800px
+    }
+}
+
+@mixin signUpFooter{
+    font-family: WorkSans !important;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+
+    &__description{
+        display: flex;
+        width:14.7rem;
+
+        &-question{
+            font-weight: 200;
+            color: #000000;
+            margin-right: .5rem;
+        }
+    }
+}

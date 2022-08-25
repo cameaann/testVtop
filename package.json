@@ -5,9 +5,13 @@
   "main": "gulpfile.js",
   "type": "module",
   "dependencies": {
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "jquery-validation": "^1.19.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
     "browser-sync": "latest",
     "del": "latest",
     "gulp": "latest",
@@ -32,11 +36,12 @@
     "gulp-webp-html-nosvg": "latest",
     "gulp-webpcss": "latest",
     "gulp-zip": "latest",
+    "jquery": "^3.6.0",
     "sass": "latest",
     "swiper": "latest",
     "vinyl-ftp": "latest",
     "webp-converter": "2.2.3",
-    "webpack": "latest",
+    "webpack": "^5.74.0",
     "webpack-stream": "latest"
   },
   "scripts": {

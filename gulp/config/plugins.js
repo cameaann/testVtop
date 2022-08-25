@@ -12,4 +12,5 @@ export const plugins = {
     browsersync: browsersync,
     newer: newer,
     if: ifPlugin
+
 }

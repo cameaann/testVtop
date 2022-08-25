@@ -1,0 +1,297 @@
+.container-wrapper{
+    width: 80rem;
+    height: 60rem;
+    margin: 10rem auto;
+    background-color:#F4F5FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup{
+    box-sizing: border-box;
+    width:66.5rem;
+    height:48rem;
+    display: flex;
+
+    &__leftbox{
+        display: flex;
+        width: 13.72rem;
+        background-color: #5A61ED;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        .form-title{
+            font-weight: 400;
+            font-size: 4.9rem;
+            color: #FFFFFF;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin-bottom: 2.2rem;
+        }
+    }
+    &__rightbox{
+        position: absolute;
+        font-family: WorkSans !important;
+        display: flex;
+        width: 48.5rem;
+        flex-direction: column;
+        background-image: url('/img/user.svg');
+        background-position: top 12.5rem left 22rem;
+        background-repeat: no-repeat;
+        padding: 2.1rem;
+        // padding-bottom: 3.2rem;
+
+        @include response(tab-port){
+            background-position: top 5rem left 16rem;
+        }
+
+        &-header{
+            margin-top: 1.75rem;
+            margin-bottom: 2rem;
+
+            .title{
+                font-size: 2.2rem;
+                color: #111111;
+                line-height: 2.57rem;
+                font-style: normal;
+                font-weight: 500;
+            }
+
+            .description{
+                font-size: 1.4rem;
+                font-weight: 300;
+            }
+        }
+
+    }
+}
+
+.wrapper-form{
+    position: relative;
+    width: 52.7rem;
+    height: 48rem;
+    background-color: #FFFFFF;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, textarea {
+    width: 23.45rem;
+    font-family: inherit;
+    line-height: 1.6em;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding: .5rem 0 .6rem 0;
+    font-size: 1.4rem;
+  }
+
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(2, 23.6rem);
+    grid-template-rows: repeat(5, 4.7rem );
+    gap: 1.6rem 1.5rem;
+}
+
+.form-group{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    }
+
+.form-group label{
+    color:#7C7C7C;
+    font-size: 1.2rem;
+    font-weight: 300;
+    }
+
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select{
+        // appearance: none;
+        border: none;
+        border-bottom: .04rem solid #F2F2F2;
+        font-weight: 400;
+        text-indent: 0px;
+        box-sizing: border-box;
+        background: none;
+        height:3.4rem;
+
+        &:focus-visible{
+            // border: none;
+            border-bottom: .04rem solid #9f9c9c;
+            outline: none;
+        }
+    }
+    select{
+        text-indent: 0px;
+        // margin-top: 5px;
+    }
+    .date-select{
+        width: 23.45rem;
+        box-sizing: border-box;
+        padding: .5rem 0 .6rem 0;
+        font-size: 1.4rem;
+        border: none;
+        border-bottom: .04rem solid #F2F2F2;
+
+
+        &-day{
+            width:4.5rem;
+            margin-right: .5rem;
+            text-indent: 0px;
+        }
+        &-month{
+            width:10.5rem;
+            margin-right: .5rem;
+        }
+        &-year{
+            width:6.5rem;
+        }
+    }
+
+.radio-group{
+    width: 23.45rem;
+    display: flex;
+    padding: .5rem 0 .6rem 0;
+
+        &-text{
+            margin-right: 1.9rem;
+        }
+}
+input[type="radio"]{
+    width:1.2rem;
+    margin-right:.6rem;
+    // border: 0.7px solid #5A61ED !important;
+    border-width:.07rem;
+    border-style: solid;
+    border-color: #5A61ED;
+}
+.sign-footer{
+    @include signUpFooter;
+}
+.signup-success-footer{
+    @include signUpFooter;
+    padding-left: 2.08rem;
+    margin-bottom: 4.3rem;
+}
+
+.error-hint{
+    color:red;
+    margin-top: 3px;
+}
+
+
+input.invalid{
+    border-bottom: .04rem solid red;
+}
+
+.signup-success{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-family: WorkSans;
+    color: #111111;
+    padding: 6.8rem;
+    margin-bottom: 7rem;
+
+    .thankYou{
+        font-size: 2.2rem;
+        font-weight: 500;
+        margin-bottom: 1.1rem;
+    }
+}
+.correct{
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color:#5A61ED;
+}
+
+.show-icon{
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.validation{
+    width: 25rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border: 1px solid #5A61ED;
+    padding: 1rem 1.5rem;
+    top: 6.5rem;
+    font-family: inherit;
+    font-size: 1.2rem;
+    line-height: 1.6em;
+    transition: ease-out 3s;
+
+    &__title{
+        color:#5A61ED;
+        margin-bottom: .5rem;
+    }
+    i{
+        margin-right: 1rem;
+        color:#9f9c9c
+    }
+    &::before{
+        content:'';
+        position: absolute;
+        width: 0;
+        height: 0;
+        // left:3rem;
+        // top:-2rem;
+        // border: 1rem solid;
+        left:3rem;
+        top:-2rem;
+        border: 1rem solid;
+        border-color: transparent transparent #5A61ED #5A61ED ;
+    }
+
+    &::after{
+        content:'';
+        position: absolute;
+        width: 0;
+        height: 0;
+        // left:3.1rem;
+        // top:-1.7rem;
+        // border: 1rem solid;
+        left:3.1rem;
+        top:-1.7rem;
+        border: 1rem solid;
+        border-color: transparent transparent #FFFFFF #FFFFFF;
+    }
+}
+.success-color{
+    color:#5A61ED !important;
+    i{
+        color: #5A61ED !important;
+    }
+}
+.success-message{
+    margin-left: .5rem;
+    color: #5A61ED !important;
+}
+
+.left-characters{
+    margin:.5rem;
+    // width:15rem;
+}
+
+.hidden{
+    display: none;
+}
+

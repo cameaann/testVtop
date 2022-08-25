@@ -1,0 +1,33 @@
+@import 'mixins.scss';
+
+html{
+    // 1rem = 10px    10px/16px=62.5% width 1200-1800px
+    font-size: 62.5%;
+
+    @include response(tab-land){ //width<1200px
+        font-size: 56.25%; //1rem=9px 9px/16px=56.25%
+    }
+    @include response(tab-port){ //width<900px
+        font-size: 50%; //1rem=8px 8px/16px=50%
+    }
+    @include response(phone){
+        font-size: 44%; //1rem=7px 7px/16px=44%
+    }
+    @include response(big-desktop){ //width> 1800px
+        font-size: 75%; //1rem=12px 12/16=75%
+    }
+}
+
+body{
+    font-family: 'PTSans';
+
+}
+
+a{
+    color:#5A61ED;
+    font-weight: 400;
+
+    &:hover{
+        color: #4f56d1;
+    }
+}

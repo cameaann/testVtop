@@ -12,7 +12,23 @@ export const js = () =>{
             mode: app.isBuild ? 'production' : 'development',
             output:{
                 filename:'app.min.js',
-            }
+            },
+            module: {
+                rules: [
+                  {
+                    test: /\.(js)$/,
+                    exclude: /(node_modules)/,
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env']
+                    }
+                  }
+                ]
+              },
+              externals: {
+                jquery: 'jQuery',
+                $: 'jQuery'
+              }
         }))
         .pipe(app.gulp.dest(app.path.build.js))
         .pipe(app.plugins.browsersync.stream())

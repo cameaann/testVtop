@@ -1,0 +1,127 @@
+<div class="container-wrapper">
+    <div class="signup">
+        <div class="signup__leftbox">
+            <div class="form-title">Sign up</div>
+        </div>
+        <div class="wrapper-form">
+            <form id="signupForm" class="signup__rightbox" novalidate>
+                <div class="signup__rightbox-header">
+                    <div class="title">New user?</div>
+                    <div class="description">Use the form below to create your account.</div>
+                </div>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName">
+                        <div class="error-hint hidden">First name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName">
+                        <div class="error-hint hidden">Last name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <select name="nationality" id="nationality">
+                            <option value="American">American</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Britain">Britain</option>
+                            <option value="German">German</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
+                        <input type="email" id="email" name="email">
+                        <div class="error-hint hidden">Email is required</div>
+                        <div class="error-hint hidden" >Email is not valid </div>
+                    </div>
+                    <!-- <div class="error-hint"></div> -->
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <div class="fallbackDatePicker">
+                            <span>
+                              <select class="date-select date-select-day" id="day" name="day" placeholder="21">
+                                <option>21</option>
+                              </select>
+                            </span>
+                            <span>
+                              <select class="date-select date-select-month" id="month" name="month">
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option  selected>December</option>
+                              </select>
+                            </span>
+                            <span>
+                              <select class="date-select date-select-year" id="year" name="year">
+                                <option>1985</option>
+                              </select>
+                            </span>
+                          </div>
+                        <!-- <input class="form-field__input" type="text" id="birthdate"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <div class="radio-group">
+                            <input id="male" name="gender" type="radio"><span class="radio-group-text">Male</span>
+                            <input id="female" name="gender" type="radio" checked><span class="radio-group-text">Female</span>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="validation hidden">
+                            <div class="validation__title">Your password needs to:</div>
+                            <div name="passLength"><i class="fa-solid fa-check"></i>be at least 8 characters long</div>
+                            <div name="lowcaseLetter"><i class="fa-solid fa-check"></i>at least lower case letter</div>
+                            <div name="uppercaseLetter"><i class="fa-solid fa-check"></i>include at least upper case letter</div>
+                            <div name="digit"><i class="fa-solid fa-check"></i>include at least one digit</div>
+                            <div name="sign"><i class="fa-solid fa-check"></i>include at least one sign (.?:;,&*#$!@)</div>
+                            <span name="countCharacters" class="left-characters"></span>
+                            <span name="success-message" class="success-message"></span>
+
+                        </div>
+                        <label for="pass">Password</label>
+                        <i id="show" class="fa-solid fa-eye show-icon" onclick="showPass()"></i>
+                        <input type="password" id="pass" name="pass">
+                        <div class="error-hint hidden">Password is required and should be of 8 symbols length, at least one digit, one lowcase, one uppercase letter and sign. </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPass">Confirm password</label>
+                        <input type="password" id="confirmPass" name="confirmPass">
+                        <div class="error-hint hidden">Passwords are different</div>
+                    </div>
+
+                 </div>
+                 <div class="sign-footer">
+                    <div class="sign-footer__description">
+                        <span class="sign-footer__description-question">Have an account?</span>
+                        <div><a href="#">Login</a></div>
+                    </div>
+                    <button type="submit" class="btn btn-blue">Complete Signup</button>
+                </div>
+            </form>
+
+            <div class="signup-success hidden">
+                <span class="thankYou">Thank You!</span>
+                <span>you registered!</span>
+            </div>
+            <div class="signup-success-footer hidden">
+                <div class="signup-success-footer__description">
+                    <span class="signup-success-footer__description-question">Have an account?</span>
+                    <div><a href="#">Login</a></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

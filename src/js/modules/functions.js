@@ -1,3 +1,4 @@
+
 export function isWebp(){
     //test if webp supported
     function testWebP(callback){
@@ -13,3 +14,4 @@ export function isWebp(){
         document.documentElement.classList.add(className);
     });
 }
+
