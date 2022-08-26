@@ -12,11 +12,13 @@
                 <div class="form-container">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
                         <input type="text" id="firstName" name="firstName">
                         <div class="error-hint hidden">First name is required</div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
                         <input type="text" id="lastName" name="lastName">
                         <div class="error-hint hidden">Last name is required</div>
                     </div>
@@ -85,9 +87,6 @@
                             <div name="uppercaseLetter"><i class="fa-solid fa-check"></i>include at least upper case letter</div>
                             <div name="digit"><i class="fa-solid fa-check"></i>include at least one digit</div>
                             <div name="sign"><i class="fa-solid fa-check"></i>include at least one sign (.?:;,&*#$!@)</div>
-                            <span name="countCharacters" class="left-characters"></span>
-                            <span name="success-message" class="success-message"></span>
-
                         </div>
                         <label for="pass">Password</label>
                         <i id="show" class="fa-solid fa-eye show-icon" onclick="showPass()"></i>
@@ -97,7 +96,7 @@
                     <div class="form-group">
                         <label for="confirmPass">Confirm password</label>
                         <input type="password" id="confirmPass" name="confirmPass">
-                        <div class="error-hint hidden">Passwords are different</div>
+                        <div class="error-hint hidden">You need to confirm your password</div>
                     </div>
 
                  </div>

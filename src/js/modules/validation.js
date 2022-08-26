@@ -1,3 +1,23 @@
+const signUpform = document.querySelector('form');
+const fnameInput = document.querySelector('input[name="firstName"]');
+const lnameInput = document.querySelector('input[name="lastName"]');
+const emailInput = document.querySelector('input[name = "email"]');
+const passInput = document.querySelector('input[name = "pass"]');
+const passConfirmInput = document.querySelector('input[name = "confirmPass"]');
+const signupSuccess = document.querySelector('.signup-success');
+const successFooter = document.querySelector('.signup-success-footer');
+
+let isFormValid = false;
+let isValidationOn = false;
+
+const inputs = [
+    fnameInput,
+    lnameInput,
+    emailInput,
+    passInput,
+    passConfirmInput
+]
+
 
 var passLength = document.querySelector('div[name="passLength"]');
 var lowerLetter = document.querySelector('div[name="lowcaseLetter"]');
@@ -9,7 +29,12 @@ var successMessage = document.querySelector('span[name="success-message"]');
 var passHintMessage = document.querySelector('.validation');
 var passHintItems = [passLength, lowerLetter, upperLetter, symbol, digit];
 
-
+const isValidInput = (inp) =>{
+    var check = inp.value.trim().length !== 0 ;
+    if(check){inp.previousElementSibling.classList.remove("hidden")}
+    else{inp.previousElementSibling.classList.add("hidden")}
+    return check;
+}
 
 
 const isValidEmail = (email) => {
@@ -23,38 +48,23 @@ const isValidEmail = (email) => {
 };
 
 const isValidPass = (pass) => {
-    passHintMessage.classList.remove("hidden");
     var allConditionsIsValid = hasLengthEightSymbols(pass) && hasLowcaseLetter(pass) && hasUppercaseLetter(pass) && hasNumber(pass) && hasSpecialSign(pass);
-
+    if (allConditionsIsValid) { return true; }
     if (pass.length) {
+        //while validation show hint message to input correct password
         changeColorHint(hasLowcaseLetter(pass), lowerLetter);
         changeColorHint(hasUppercaseLetter(pass), upperLetter);
         changeColorHint(hasSpecialSign(pass), symbol);
         changeColorHint(hasNumber(pass), digit);
-
-        if (hasLengthEightSymbols(pass)) {
-            passLength.classList.add('success-color');
-            countCharacters.innerHTML = "";
-        } else {
-            var count = 8 - pass.length;
-            countCharacters.innerHTML = count + " " + "characters left";
-            passLength.classList.remove('success-color');
-        }
-
-        if (allConditionsIsValid) {
-            successMessage.innerHTML = "strong";
-            return true;
-        } else{
-            successMessage.innerHTML = "";
-        }
+        changeColorHint(hasLengthEightSymbols(pass), passLength);
     }
-    else{
-        passHintItems.forEach(item => {
-            if(item.classList.contains("success-color")){
-                item.classList.remove("success-color");
-            }
-        })
-        countCharacters.innerHTML = " ";
+    else {
+        //if the user removes all characters from the paswword input change hints
+            passHintItems.forEach(item => {
+                if (item.classList.contains("success-color")) {
+                    item.classList.remove("success-color");
+                }
+            });
     }
 }
 
@@ -80,7 +90,10 @@ const hasSpecialSign = (pass) => {
 }
 
 const isValidConfirmPass = (pass, confirmPass) => {
-    return pass === confirmPass;
+    if (pass.length === 0) {
+        passConfirmInput.nextElementSibling.innerHTML = "Passwords are different"
+        return false; }
+    else { return pass === confirmPass; }
 }
 
 function showPass() {
@@ -102,29 +115,11 @@ eyecolor.onclick = function () {
     showPass();
 }
 
-const signUpform = document.querySelector('form');
-const fnameInput = document.querySelector('input[name="firstName"]');
-const lnameInput = document.querySelector('input[name="lastName"]');
-const emailInput = document.querySelector('input[name = "email"]');
-const passInput = document.querySelector('input[name = "pass"]');
-const passConfirmInput = document.querySelector('input[name = "confirmPass"]');
-const signupSuccess = document.querySelector('.signup-success');
-const successFooter = document.querySelector('.signup-success-footer');
 
-let isFormValid = false;
-let isValidationOn = false;
 
-const inputs = [
-    fnameInput,
-    lnameInput,
-    emailInput,
-    passInput,
-    passConfirmInput
-]
-
-const changeColorHintPassHint = (valid, item) =>{
-    if(valid){ item.classList.add('success-color');    }
-    else{ item.classList.remove('success-color');}
+const changeColorHint = (valid, item) => {
+    if (valid) { item.classList.add('success-color'); }
+    else { item.classList.remove('success-color'); }
 }
 
 const resetElm = (elm) => {
@@ -138,20 +133,21 @@ const invalidateElm = (elm) => {
 
 const validateInput = (inp) => {
 
-    if(!inp.value){
-        isFormValid = false;
-        invalidateElm(inp);
+    if (inp.id === 'firstName' || inp.id === 'lastName') {
+         isFormValid = isValidInput(inp);
+         if (!isFormValid) { invalidateElm(inp) };
     }
-    if (inp.id==='email'){
+    if (inp.id === 'email') {
         isFormValid = isValidEmail(inp.value);
-        if(!isFormValid){invalidateElm(inp)};
+        if (!isFormValid) { invalidateElm(inp) };
     }
-    if (inp.id==='pass'){
+    if (inp.id === 'pass') {
         isFormValid = isValidPass(inp.value);
-        if(!isFormValid){invalidateElm(inp)};
+        if (!isFormValid) { passHintMessage.classList.remove("hidden"); };
+        if (isFormValid) { passHintMessage.classList.add('hidden') };
     }
-    if (inp.id==='confirmPass'){
-        isFormValid = isValidConfirmPass(passInput, inp.value);
+    if (inp.id === 'confirmPass') {
+        isFormValid = isValidConfirmPass(passInput.value, inp.value);
         if(!isFormValid){invalidateElm(inp)};
     }
 }
@@ -197,22 +193,23 @@ signUpform.addEventListener('submit', (e) => {
 });
 
 inputs.forEach((input) => {
-    input.addEventListener('click', () => {
-        if (input === document.activeElement) {
-            resetElm(input);
-        }
+    input.addEventListener('focusin', () => {
+        resetElm(input);
     })
 })
 
 inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-        // validateInputs();
+    input.addEventListener("blur", () => {
+        validateInput(input);
+    }, true)
+});
 
-        if(input === document.activeElement){
-            validateInput(input);
-        }
+passInput.addEventListener("input", () =>{
+    validateInput(passInput);
+});
 
-    })
-})
-
+passInput.addEventListener("blur", () =>{
+    passHintMessage.classList.add('hidden');
+    if (!isFormValid){invalidateElm(passInput)};
+});
 
