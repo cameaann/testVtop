@@ -5,6 +5,10 @@
         </div>
         <div class="wrapper-form">
             <form id="signupForm" class="signup__rightbox" novalidate>
+                <!-- <svg class="signup__rightbox-userImage" width="307" height="355" viewBox="0 0 307 355" fill="#F4F5FC" xmlns="http://www.w3.org/2000/svg">
+                    <path class="myPath" fill-rule="evenodd" clip-rule="evenodd" d="M205.5 411C92.236 411 0 318.764 0 205.5C0 92.236 92.236 0 205.5 0C318.764 0 411 92.236 411 205.5C411 271.362 379.812 330.113 331.438 367.754C333.781 365.394 335.295 362.201 335.521 358.578C336 354.751 336 351.881 336 348.533V343.749C335.879 337.683 335.35 331.725 334.44 325.901C363.927 294.343 382 251.99 382 205.5C382 108.186 302.814 29 205.5 29C108.186 29 29 108.186 29 205.5C29 252.377 47.3746 295.047 77.2988 326.686C76.282 333.801 75.8485 341.1 76.0469 348.533C76.0469 351.403 76.0469 354.751 76.5256 358.578C77.0044 366.71 83.7067 372.451 91.8452 371.972C99.9836 371.494 105.728 364.797 105.25 356.665C104.892 354.163 104.802 352.196 104.779 350.363C133.361 370.298 168.091 382 205.5 382C243.357 382 278.471 370.016 307.247 349.643C307.207 350.468 307.131 351.336 307.053 352.232C306.928 353.664 306.797 355.164 306.797 356.665C306.318 364.318 312.063 371.494 320.202 371.972H321.159C323.791 371.972 326.253 371.294 328.371 370.094C294.07 395.773 251.521 411 205.5 411ZM307.247 349.643C317.103 342.665 326.215 334.703 334.44 325.901C324.506 262.367 269.17 214.712 203.39 216.027C138.589 217.313 86.0983 265.111 77.2988 326.686C85.6155 335.48 94.8243 343.421 104.779 350.363C104.771 349.743 104.771 349.138 104.771 348.533V344.227C105.728 288.259 152.166 243.771 208.178 245.207C264.19 246.163 308.712 292.564 307.276 348.533C307.276 348.892 307.265 349.263 307.247 349.643ZM328.371 370.094C329.401 369.324 330.423 368.543 331.438 367.754C330.531 368.667 329.5 369.455 328.371 370.094ZM147 142.5C147 174.339 172.661 200 204.5 200C236.339 200 262 174.339 262 142.5C262 110.661 236.339 85 204.5 85C172.661 85 147 110.661 147 142.5ZM205.5 114C189.057 114 176 127.057 176 143.5C176 159.943 189.057 173 205.5 173C221.943 173 235 159.943 235 143.5C235 127.057 221.943 114 205.5 114Z" fill="#F9FAFF"/>
+                    </svg> -->
+                    <svg class="signup__rightbox-userImage" viewBox="0 0 403.23 403.23"><defs><style>.cls-1,.cls-2,.cls-3{fill:none;stroke:#f9faff;stroke-miterlimit:10;}.cls-1{stroke-width:24.23px;}.cls-2{stroke-width:23.63px;}.cls-3{stroke-width:26.51px;fill-rule:evenodd;}</style></defs><title>userImAsset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><circle class="cls-1" cx="201.61" cy="201.61" r="189.5"/><circle class="cls-2" cx="201.11" cy="138.86" r="43.6"/><path class="cls-3" d="M86.26,352h0c-.07-1.74-.11-3.49-.11-5.25,0-3.86.17-7.69.52-11.46,5.56-61.72,55.57-110,116.46-110,60.34,0,110,47.44,116.3,108.36a126.36,126.36,0,0,1,.68,13.12c0,.94,0,1.88,0,2.81"/></g></g></svg>
                 <div class="signup__rightbox-header">
                     <div class="title">New user?</div>
                     <div class="description">Use the form below to create your account.</div>
@@ -80,14 +84,6 @@
 
                     </div>
                     <div class="form-group">
-                        <div class="validation hidden">
-                            <div class="validation__title">Your password needs to:</div>
-                            <div name="passLength"><i class="fa-solid fa-check"></i>be at least 8 characters long</div>
-                            <div name="lowcaseLetter"><i class="fa-solid fa-check"></i>at least lower case letter</div>
-                            <div name="uppercaseLetter"><i class="fa-solid fa-check"></i>include at least upper case letter</div>
-                            <div name="digit"><i class="fa-solid fa-check"></i>include at least one digit</div>
-                            <div name="sign"><i class="fa-solid fa-check"></i>include at least one sign (.?:;,&*#$!@)</div>
-                        </div>
                         <label for="pass">Password</label>
                         <i id="show" class="fa-solid fa-eye show-icon" onclick="showPass()"></i>
                         <input type="password" id="pass" name="pass">
@@ -98,14 +94,21 @@
                         <input type="password" id="confirmPass" name="confirmPass">
                         <div class="error-hint hidden">You need to confirm your password</div>
                     </div>
-
                  </div>
                  <div class="sign-footer">
                     <div class="sign-footer__description">
                         <span class="sign-footer__description-question">Have an account?</span>
                         <div><a href="#">Login</a></div>
                     </div>
-                    <button type="submit" class="btn btn-blue">Complete Signup</button>
+                    <button type="submit" class="btn btn-blue animate__animated">Complete Signup</button>
+                </div>
+                <div class="validation hidden">
+                    <div class="validation__title">Your password needs to:</div>
+                    <div name="passLength"><i class="fa-solid fa-check"></i>be at least 8 characters long</div>
+                    <div name="lowcaseLetter"><i class="fa-solid fa-check"></i>at least lower case letter</div>
+                    <div name="uppercaseLetter"><i class="fa-solid fa-check"></i>include at least upper case letter</div>
+                    <div name="digit"><i class="fa-solid fa-check"></i>include at least one digit</div>
+                    <div name="sign"><i class="fa-solid fa-check"></i>include at least one sign (.?:;,&*#$!@)</div>
                 </div>
             </form>
 

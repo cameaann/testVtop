@@ -6,6 +6,7 @@ const passInput = document.querySelector('input[name = "pass"]');
 const passConfirmInput = document.querySelector('input[name = "confirmPass"]');
 const signupSuccess = document.querySelector('.signup-success');
 const successFooter = document.querySelector('.signup-success-footer');
+const submitButton = document.querySelector('.btn.btn-blue');
 
 let isFormValid = false;
 let isValidationOn = false;
@@ -182,9 +183,14 @@ const validateInputs = () => {
 
 signUpform.addEventListener('submit', (e) => {
     isValidationOn = true;
+    submitButton.classList.remove('animate__shakeX');
 
     e.preventDefault();
     validateInputs();
+    if(!isFormValid){
+        console.log(submitButton);
+        submitButton.classList.add('animate__shakeX');
+    }
     if (isFormValid) {
         signUpform.remove();
         signupSuccess.classList.remove('hidden');
