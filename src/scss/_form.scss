@@ -1,4 +1,7 @@
+@import 'animation.scss';
+
 .container-wrapper{
+    position: relative;
     width: 80rem;
     height: 60rem;
     margin: 10rem auto;
@@ -8,11 +11,28 @@
     align-items: center;
 }
 
+
+.userImage{
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    pointer-events: none;
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    top:15rem;
+    left:20rem;
+    animation: firstAnimation 4s linear forwards;
+    z-index: 10;
+}
+
+
 .signup{
+    position: absolute;
     box-sizing: border-box;
     width:66.5rem;
     height:48rem;
     display: flex;
+
 
     &__leftbox{
         display: flex;
@@ -32,16 +52,20 @@
         }
     }
     &__rightbox{
-        position: absolute;
+        position: relative;
         font-family: WorkSans !important;
         display: flex;
         width: 48.5rem;
         flex-direction: column;
-        background-image: url('/img/user.svg');
-        background-position: top 12.5rem left 22rem;
-        background-repeat: no-repeat;
+        // background-image: url('/img/user.svg');
+        // background-position: top 12.5rem left 22rem;
+        // background-size: 60%;
+        // background-repeat: no-repeat;
         padding: 2.1rem;
         // padding-bottom: 3.2rem;
+        overflow: hidden;
+        z-index: 20;
+
 
         @include response(tab-port){
             background-position: top 5rem left 16rem;
@@ -76,6 +100,7 @@
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 input, select, textarea {
@@ -115,7 +140,6 @@ input, select, textarea {
     input[type="password"],
     input[type="email"],
     select{
-        // appearance: none;
         border: none;
         border-bottom: .04rem solid #F2F2F2;
         font-weight: 400;
@@ -184,13 +208,15 @@ input[type="radio"]{
 }
 
 .error-hint{
-    color:red;
+    color:#FF2222;
+
     margin-top: 3px;
 }
 
 
 input.invalid{
-    border-bottom: .04rem solid red;
+    color:#FF2222;
+    border-bottom: .04rem solid #FF2222;
 }
 
 .signup-success{
@@ -232,12 +258,15 @@ input.invalid{
     flex-direction: column;
     background-color: #FFFFFF;
     border: 1px solid #5A61ED;
-    padding: 1rem 1.5rem;
-    top: 6.5rem;
+    padding: 1rem;
+    // top: 6.5rem;
+    top: 31.5rem;
     font-family: inherit;
     font-size: 1.2rem;
     line-height: 1.6em;
     transition: ease-out 3s;
+    opacity: 1 !important;
+    right:1rem;
 
     &__title{
         color:#5A61ED;
@@ -252,13 +281,12 @@ input.invalid{
         position: absolute;
         width: 0;
         height: 0;
+        left:-2.1rem;
+        top:1.5rem;
         // left:3rem;
         // top:-2rem;
-        // border: 1rem solid;
-        left:3rem;
-        top:-2rem;
         border: 1rem solid;
-        border-color: transparent transparent #5A61ED #5A61ED ;
+        border-color: #5A61ED #5A61ED transparent transparent;
     }
 
     &::after{
@@ -266,15 +294,19 @@ input.invalid{
         position: absolute;
         width: 0;
         height: 0;
+        left:-1.6rem;
+        top:1.7rem;
         // left:3.1rem;
         // top:-1.7rem;
-        // border: 1rem solid;
-        left:3.1rem;
-        top:-1.7rem;
         border: 1rem solid;
-        border-color: transparent transparent #FFFFFF #FFFFFF;
+        border-color: #FFFFFF #FFFFFF transparent transparent;
     }
 }
+
+// .signup__rightbox &&.validation{
+//     overflow: visible;
+// }
+
 .success-color{
     color:#5A61ED !important;
     i{

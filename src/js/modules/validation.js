@@ -1,3 +1,4 @@
+
 const signUpform = document.querySelector('form');
 const fnameInput = document.querySelector('input[name="firstName"]');
 const lnameInput = document.querySelector('input[name="lastName"]');
@@ -7,6 +8,11 @@ const passConfirmInput = document.querySelector('input[name = "confirmPass"]');
 const signupSuccess = document.querySelector('.signup-success');
 const successFooter = document.querySelector('.signup-success-footer');
 const submitButton = document.querySelector('.btn.btn-blue');
+const nationality = document.getElementById('nationality');
+const daybirth = document.getElementById('day');
+const monthbirth = document.getElementById('month');
+const yearbirth = document.getElementById('year');
+
 
 let isFormValid = false;
 let isValidationOn = false;
@@ -192,6 +198,16 @@ signUpform.addEventListener('submit', (e) => {
         submitButton.classList.add('animate__shakeX');
     }
     if (isFormValid) {
+        var birthdate = daybirth.options[daybirth.selectedIndex].text + " " + monthbirth.options[monthbirth.selectedIndex].text + " "+ yearbirth.options[yearbirth.selectedIndex].text;
+        var user = {
+            firstname: fnameInput.value,
+            lastName: lnameInput.value,
+            email: emailInput.value,
+            nationality: nationality.options[nationality.selectedIndex].text,
+            birth: birthdate
+        }
+        var userJ = JSON.stringify(user);
+        console.log(userJ);
         signUpform.remove();
         signupSuccess.classList.remove('hidden');
         successFooter.classList.remove('hidden');
