@@ -1,4 +1,3 @@
-
 const signUpform = document.querySelector('form');
 const fnameInput = document.querySelector('input[name="firstName"]');
 const lnameInput = document.querySelector('input[name="lastName"]');
@@ -36,21 +35,27 @@ var successMessage = document.querySelector('span[name="success-message"]');
 var passHintMessage = document.querySelector('.validation');
 var passHintItems = [passLength, lowerLetter, upperLetter, symbol, digit];
 
-const isValidInput = (inp) =>{
-    var check = inp.value.trim().length !== 0 ;
-    if(check){inp.previousElementSibling.classList.remove("hidden")}
-    else{inp.previousElementSibling.classList.add("hidden")}
+const isValidInput = (inp) => {
+    var check = inp.value.trim().length !== 0;
+    if (check) { inp.previousElementSibling.classList.remove("hidden") }
+    else { inp.previousElementSibling.classList.add("hidden") }
     return check;
 }
 
 
 const isValidEmail = (email) => {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
     if (reg.test(String(email).toLocaleLowerCase())) {
         emailInput.previousElementSibling.classList.remove("hidden");
     } else {
         emailInput.previousElementSibling.classList.add("hidden");
     }
+    console.log(String(email).toLocaleLowerCase());
+
+    console.log(reg.test(String(email).toLocaleLowerCase()));
+
     return reg.test(String(email).toLocaleLowerCase());
 };
 
@@ -67,11 +72,11 @@ const isValidPass = (pass) => {
     }
     else {
         //if the user removes all characters from the paswword input change hints
-            passHintItems.forEach(item => {
-                if (item.classList.contains("success-color")) {
-                    item.classList.remove("success-color");
-                }
-            });
+        passHintItems.forEach(item => {
+            if (item.classList.contains("success-color")) {
+                item.classList.remove("success-color");
+            }
+        });
     }
 }
 
@@ -99,7 +104,8 @@ const hasSpecialSign = (pass) => {
 const isValidConfirmPass = (pass, confirmPass) => {
     if (pass.length === 0) {
         passConfirmInput.nextElementSibling.innerHTML = "Passwords are different"
-        return false; }
+        return false;
+    }
     else { return pass === confirmPass; }
 }
 
@@ -141,8 +147,8 @@ const invalidateElm = (elm) => {
 const validateInput = (inp) => {
 
     if (inp.id === 'firstName' || inp.id === 'lastName') {
-         isFormValid = isValidInput(inp);
-         if (!isFormValid) { invalidateElm(inp) };
+        isFormValid = isValidInput(inp);
+        if (!isFormValid) { invalidateElm(inp) };
     }
     if (inp.id === 'email') {
         isFormValid = isValidEmail(inp.value);
@@ -155,7 +161,7 @@ const validateInput = (inp) => {
     }
     if (inp.id === 'confirmPass') {
         isFormValid = isValidConfirmPass(passInput.value, inp.value);
-        if(!isFormValid){invalidateElm(inp)};
+        if (!isFormValid) { invalidateElm(inp) };
     }
 }
 
@@ -193,24 +199,27 @@ signUpform.addEventListener('submit', (e) => {
 
     e.preventDefault();
     validateInputs();
-    if(!isFormValid){
+    if (!isFormValid) {
         console.log(submitButton);
         submitButton.classList.add('animate__shakeX');
     }
     if (isFormValid) {
-        var birthdate = daybirth.options[daybirth.selectedIndex].text + " " + monthbirth.options[monthbirth.selectedIndex].text + " "+ yearbirth.options[yearbirth.selectedIndex].text;
-        var user = {
-            firstname: fnameInput.value,
-            lastName: lnameInput.value,
-            email: emailInput.value,
-            nationality: nationality.options[nationality.selectedIndex].text,
-            birth: birthdate
+
+        const userFormData = new FormData(e.target);
+        const userFormDataObj = {};
+        userFormData.forEach((value, key) => {
+            if(key!=="pass"&&key!=="confirmPass"&&key!=="day"&&key!=="month"&&key!=="year"){
+                userFormDataObj[key] = value};
+                userFormDataObj['datebirth'] = daybirth.value+" "+monthbirth.value+" "+yearbirth.value;
+            }
+        )
+
+        console.log(userFormDataObj);
+        try{
+            sendData(userFormDataObj);
+        }catch(error){
+            console.log(error);
         }
-        var userJ = JSON.stringify(user);
-        console.log(userJ);
-        signUpform.remove();
-        signupSuccess.classList.remove('hidden');
-        successFooter.classList.remove('hidden');
     }
 });
 
@@ -226,12 +235,42 @@ inputs.forEach((input) => {
     }, true)
 });
 
-passInput.addEventListener("input", () =>{
+passInput.addEventListener("input", () => {
     validateInput(passInput);
 });
 
-passInput.addEventListener("blur", () =>{
+passInput.addEventListener("blur", () => {
     passHintMessage.classList.add('hidden');
-    if (!isFormValid){invalidateElm(passInput)};
+    if (!isFormValid) { invalidateElm(passInput) };
 });
+
+function sendData(userData) {
+    // var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+    // xmlhttp.open("POST", "https://json-file-hosting.herokuapp.com/users");
+    // xmlhttp.setRequestHeader("Content-Type", "application/json");
+    // xmlhttp.send(JSON.stringify(userData));
+
+    fetch("https://json-file-hosting.herokuapp.com/users", {
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify({
+            userData
+        }),
+
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    }).then(response => {
+        console.log(response);
+        signUpform.remove();
+        signupSuccess.classList.remove('hidden');
+        successFooter.classList.remove('hidden');
+    })
+
+
+
+}
 
