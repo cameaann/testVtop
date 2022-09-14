@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css?_v=20220914171226">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css?_v=20220914171226"/>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220914171226">
+    <title>Главная</title>
+</head>
+<body>
+<div class="container-wrapper">
+    <div class="signup">
+        <div class="signup__leftbox">
+            <div class="form-title">Sign up</div>
+        </div>
+        <div class="wrapper-form">
+            <svg class="userImage" viewBox="0 0 403.23 403.23"><defs><style>.cls-1,.cls-2,.cls-3{fill:none;stroke:#f9faff;stroke-miterlimit:10;}.cls-1{stroke-width:24.23px;}.cls-2{stroke-width:23.63px;}.cls-3{stroke-width:26.51px;fill-rule:evenodd;}</style></defs><title>userImAsset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><circle class="cls-1" cx="201.61" cy="201.61" r="189.5"/><circle class="cls-2" cx="201.11" cy="138.86" r="43.6"/><path class="cls-3" d="M86.26,352h0c-.07-1.74-.11-3.49-.11-5.25,0-3.86.17-7.69.52-11.46,5.56-61.72,55.57-110,116.46-110,60.34,0,110,47.44,116.3,108.36a126.36,126.36,0,0,1,.68,13.12c0,.94,0,1.88,0,2.81"/></g></g></svg>
+            <form id="signupForm" class="signup__rightbox" novalidate>
+                <div class="signup__rightbox-header">
+                    <div class="title">New user?</div>
+                    <div class="description">Use the form below to create your account.</div>
+                </div>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
+                        <input type="text" id="firstName" name="firstName">
+                        <div class="error-hint hidden">First name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
+                        <input type="text" id="lastName" name="lastName">
+                        <div class="error-hint hidden">Last name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <select name="nationality" id="nationality">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <i class="fa-solid fa-check correct hidden "></i>
+                        <input type="email" id="email" name="email">
+                        <div class="error-hint hidden">Email is required</div>
+                        <div class="error-hint hidden" >Email is not valid </div>
+                    </div>
+                    <!-- <div class="error-hint"></div> -->
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <div class="fallbackDatePicker" >
+                            <span>
+                              <select class="date-select date-select-day" id="day" name="day">
+                              </select>
+                            </span>
+                            <span>
+                              <select class="date-select date-select-month" id="month" name="month">
+                              </select>
+                            </span>
+                            <span>
+                              <select class="date-select date-select-year" id="year" name="year">
+                              </select>
+                            </span>
+                          </div>
+                        <!-- <input class="form-field__input" type="text" id="birthdate"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <div class="radio-group">
+                            <input id="male" name="gender" type="radio"><span class="radio-group-text">Male</span>
+                            <input id="female" name="gender" type="radio" checked><span class="radio-group-text">Female</span>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <i id="show" class="fa-solid fa-eye show-icon" onclick="showPass()"></i>
+                        <input type="password" id="pass" name="pass">
+                        <div class="error-hint hidden">Password is required and should be of 8 symbols length, at least one digit, one lowcase, one uppercase letter and sign. </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPass">Confirm password</label>
+                        <input type="password" id="confirmPass" name="confirmPass">
+                        <div class="error-hint hidden">You need to confirm your password</div>
+                    </div>
+                 </div>
+                 <div class="sign-footer">
+                    <div class="sign-footer__description">
+                        <span class="sign-footer__description-question">Have an account?</span>
+                        <div><a href="#">Login</a></div>
+                    </div>
+                    <button type="submit" class="btn btn-blue animate__animated">Complete Signup</button>
+                </div>
+                <div class="validation hidden">
+                    <div class="validation__title">Your password needs to:</div>
+                    <div name="passLength"><i class="fa-solid fa-check"></i>be at least 8 characters long</div>
+                    <div name="lowcaseLetter"><i class="fa-solid fa-check"></i>at least lower case letter</div>
+                    <div name="uppercaseLetter"><i class="fa-solid fa-check"></i>include at least upper case letter</div>
+                    <div name="digit"><i class="fa-solid fa-check"></i>include at least one digit</div>
+                    <div name="sign"><i class="fa-solid fa-check"></i>include at least one sign (.?:;,&*#$!@)</div>
+                </div>
+            </form>
+
+            <div class="signup-success hidden">
+                <span class="thankYou">Thank You!</span>
+                <span>you registered!</span>
+            </div>
+            <div class="signup-success-footer hidden">
+                <div class="signup-success-footer__description">
+                    <span class="signup-success-footer__description-question">Have an account?</span>
+                    <div><a href="#">Login</a></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<main>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js?_v=20220914171226"></script>
+<script src="js/app.min.js?_v=20220914171226"></script>
+</body>
+
+</html>
