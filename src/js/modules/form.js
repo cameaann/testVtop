@@ -494,13 +494,20 @@ passInput.addEventListener("blur", () => {
 
 //SENDING DATA TO SERVER
 
-function sendData(userData) {
-    // var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-    // xmlhttp.open("POST", "https://json-file-hosting.herokuapp.com/users");
-    // xmlhttp.setRequestHeader("Content-Type", "application/json");
-    // xmlhttp.send(JSON.stringify(userData));
+async function stall(stallTime = 3000) {
+    await new Promise(resolve => setTimeout(resolve, stallTime));
+}
 
-    fetch("https://json-file-hosting.herokuapp.com/users", {
+
+async function sendData(userData) {
+    var loader = document.createElement('div');
+    loader.id = 'loader';
+    loader.classList.add('loader');
+    document.getElementById('signup').appendChild(loader);
+
+    // await stall(4000);
+
+    const response = await fetch("https://json-file-hosting.herokuapp.com/users", {
         // Adding method type
         method: "POST",
 
@@ -513,13 +520,9 @@ function sendData(userData) {
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
-    }).then(response => {
-        console.log(response);
-        signUpform.remove();
-        signupSuccess.classList.remove('hidden');
-        successFooter.classList.remove('hidden');
-    })
+    });
 
+    return response.json();
 
 
 }
