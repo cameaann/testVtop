@@ -299,10 +299,6 @@ const isValidEmail = (email) => {
     } else {
         emailInput.previousElementSibling.classList.add("hidden");
     }
-    console.log(String(email).toLocaleLowerCase());
-
-    console.log(reg.test(String(email).toLocaleLowerCase()));
-
     return reg.test(String(email).toLocaleLowerCase());
 };
 
@@ -461,12 +457,15 @@ signUpform.addEventListener('submit', (e) => {
             }
         )
 
-        console.log(userFormDataObj);
-        try{
-            sendData(userFormDataObj);
-        }catch(error){
-            console.log(error);
-        }
+        sendData(userFormDataObj)
+            .then(response => {
+                document.getElementById('loader').remove();
+                signUpform.remove();
+                signupSuccess.classList.remove('hidden');
+                successFooter.classList.remove('hidden');
+            })
+            .catch(error => { console.log(error); }
+            );
     }
 });
 
