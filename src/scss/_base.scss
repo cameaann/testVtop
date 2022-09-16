@@ -13,6 +13,9 @@ html{
     @include response(phone){
         font-size: 44%; //1rem=7px 7px/16px=44%
     }
+    @include response(phone-mini){
+        font-size: 37.5%; //1rem=5.5px 5.5px/16px=34%
+    }
     @include response(big-desktop){ //width> 1800px
         font-size: 75%; //1rem=12px 12/16=75%
     }

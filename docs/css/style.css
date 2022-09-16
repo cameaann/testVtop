@@ -433,7 +433,6 @@ a:hover {
   position: relative;
   font-family: WorkSans !important;
   display: flex;
-  width: 48.5rem;
   flex-direction: column;
   padding: 2.1rem;
   overflow: hidden;
@@ -460,8 +459,6 @@ a:hover {
 
 .wrapper-form {
   position: relative;
-  width: 52.7rem;
-  height: 48rem;
   background-color: #FFFFFF;
   justify-content: flex-end;
   display: flex;
@@ -472,10 +469,8 @@ a:hover {
 input,
 select,
 textarea {
-  max-width: 23.45rem;
   font-family: inherit;
   line-height: 1.6em;
-  font-size: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -488,7 +483,7 @@ textarea {
 
 .form-container {
   display: grid;
-  grid-template-columns: repeat(2, 23.6rem);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 4.7rem);
   gap: 1.6rem 1.5rem;
 }
@@ -531,8 +526,12 @@ select {
   text-indent: 0px;
 }
 
+.fallbackDatePicker {
+  display: flex;
+  justify-content: space-between;
+}
+
 .date-select {
-  width: 23.45rem;
   box-sizing: border-box;
   padding: 0.5rem 0 0.6rem 0;
   font-size: 1.4rem;
@@ -542,17 +541,15 @@ select {
 
 .date-select-day {
   width: 4.5rem;
-  margin-right: 0.5rem;
   text-indent: 0px;
 }
 
 .date-select-month {
   width: 10.5rem;
-  margin-right: 0.5rem;
 }
 
 .date-select-year {
-  width: 6.5rem;
+  width: 6.7rem;
 }
 
 .radio-group {
@@ -580,7 +577,7 @@ input[type=radio] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.2rem;
+  margin-top: 2rem;
 }
 
 .sign-footer__description {
@@ -600,7 +597,7 @@ input[type=radio] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.2rem;
+  margin-top: 2rem;
   padding-left: 2.08rem;
   margin-bottom: 4.3rem;
 }
@@ -796,10 +793,14 @@ button {
   }
 
   .container-wrapper {
-    width: 66rem;
+    width: 100%;
     height: 48rem;
     margin: 0;
     margin-top: 5rem;
+  }
+
+  .signup {
+    width: 100%;
   }
 
   .signup__rightbox-header .title {
@@ -816,8 +817,24 @@ button {
     font-size: 1.8rem;
   }
 
+  .form-container {
+    grid-template-columns: repeat(2, 50%);
+  }
+
   .form-group label {
     font-size: 1.6rem;
+  }
+
+  .date-select-day {
+    width: 4rem;
+  }
+
+  .date-select-month {
+    width: 7.4rem;
+  }
+
+  .date-select-year {
+    width: 6rem;
   }
 
   .radio-group {
@@ -838,5 +855,11 @@ button {
 
   .signup-success-footer {
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 22.5em) {
+  html {
+    font-size: 37.5%;
   }
 }
