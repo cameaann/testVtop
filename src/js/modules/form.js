@@ -504,7 +504,7 @@ async function sendData(userData) {
     loader.classList.add('loader');
     document.getElementById('signup').appendChild(loader);
 
-    await stall(4000);
+    // await stall(4000);
 
     const response = await fetch("https://json-file-hosting.herokuapp.com/users", {
         // Adding method type
