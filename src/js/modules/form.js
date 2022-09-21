@@ -24,7 +24,6 @@ const inputs = [
     passConfirmInput
 ]
 
-
 var passLength = document.querySelector('span[name="passLength"]');
 var lowerLetter = document.querySelector('span[name="lowcaseLetter"]');
 var upperLetter = document.querySelector('span[name="uppercaseLetter"]');
@@ -434,20 +433,21 @@ const validateInputs = () => {
         isFormValid = false;
         invalidateElm(passConfirmInput);
     }
+
 }
 
 signUpform.addEventListener('submit', (e) => {
     isValidationOn = true;
-
-
     e.preventDefault();
+    if(submitButton.classList.contains('shake')){
+        submitButton.classList.remove('shake');
+    }
     validateInputs();
-    if (!isFormValid) {
-        console.log(submitButton);
-        submitButton.classList.add('animate__shakeX');
+    if(!isFormValid) {
+        window.requestAnimationFrame(function() {
+        submitButton.classList.add('shake');});
     }
     if (isFormValid) {
-        // submitButton.classList.remove('animate__shakeX');
         const userFormData = new FormData(e.target);
         const userFormDataObj = {};
         userFormData.forEach((value, key) => {
