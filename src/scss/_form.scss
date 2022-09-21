@@ -478,6 +478,9 @@ input.invalid{
     @include response(phone){
         display: none;
     }
+    @include response(phone-min){
+        display: none;
+    }
 }
 
 
