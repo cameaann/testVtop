@@ -25,11 +25,11 @@ const inputs = [
 ]
 
 
-var passLength = document.querySelector('div[name="passLength"]');
-var lowerLetter = document.querySelector('div[name="lowcaseLetter"]');
-var upperLetter = document.querySelector('div[name="uppercaseLetter"]');
-var symbol = document.querySelector('div[name="sign"]');
-var digit = document.querySelector('div[name="digit"]');
+var passLength = document.querySelector('span[name="passLength"]');
+var lowerLetter = document.querySelector('span[name="lowcaseLetter"]');
+var upperLetter = document.querySelector('span[name="uppercaseLetter"]');
+var symbol = document.querySelector('span[name="sign"]');
+var digit = document.querySelector('span[name="digit"]');
 var countCharacters = document.querySelector('span[name="countCharacters"]');
 var successMessage = document.querySelector('span[name="success-message"]');
 var passHintMessage = document.querySelector('.validation');
@@ -438,7 +438,7 @@ const validateInputs = () => {
 
 signUpform.addEventListener('submit', (e) => {
     isValidationOn = true;
-    submitButton.classList.remove('animate__shakeX');
+
 
     e.preventDefault();
     validateInputs();
@@ -447,7 +447,7 @@ signUpform.addEventListener('submit', (e) => {
         submitButton.classList.add('animate__shakeX');
     }
     if (isFormValid) {
-
+        // submitButton.classList.remove('animate__shakeX');
         const userFormData = new FormData(e.target);
         const userFormDataObj = {};
         userFormData.forEach((value, key) => {
