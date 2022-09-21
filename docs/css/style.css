@@ -730,10 +730,6 @@ input.invalid {
   margin: 0.5rem;
 }
 
-.hidden {
-  display: none;
-}
-
 .loader {
   width: 48px;
   height: 48px;
@@ -748,6 +744,10 @@ input.invalid {
           animation: rotation 1s linear infinite;
   position: absolute;
   z-index: 2000;
+}
+
+.hidden {
+  display: none;
 }
 
 button {
@@ -927,14 +927,6 @@ button {
     font-size: 1.6rem;
   }
 
-  .validation {
-    top: 72rem;
-    width: 90%;
-    display: inline;
-    right: 1.5rem;
-    font-size: 1.6rem;
-  }
-
   .validation > span {
     width: 30rem;
     margin-right: 2rem !important;
@@ -945,6 +937,10 @@ button {
   }
 
   .validation::after {
+    display: none;
+  }
+
+  .hidden {
     display: none;
   }
 }
@@ -965,5 +961,17 @@ button {
 
   .form-container {
     row-gap: 6.5rem;
+  }
+
+  .validation {
+    top: 52rem;
+  }
+
+  .validation {
+    top: 72rem;
+    width: 90%;
+    display: inline;
+    right: 1.5rem;
+    font-size: 1.6rem;
   }
 }

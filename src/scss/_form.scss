@@ -380,7 +380,10 @@ input.invalid{
     opacity: 1 !important;
     right:1rem;
 
-    @include response(phone){
+    @include response(phone-mini){
+        top:52rem;}
+
+    @include response(phone-mini){
         top:72rem;
         width:90%;
         display: inline;
@@ -455,10 +458,6 @@ input.invalid{
     // width:15rem;
 }
 
-.hidden{
-    display: none;
-}
-
 .loader {
     width: 48px;
     height: 48px;
@@ -473,5 +472,13 @@ input.invalid{
     position: absolute;
     z-index: 2000;
   }
+  .hidden{
+    display: none;
+
+    @include response(phone){
+        display: none;
+    }
+}
+
 
 
