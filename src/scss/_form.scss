@@ -381,7 +381,12 @@ input.invalid{
     right:1rem;
 
     @include response(phone){
-        top:52rem;}
+        top:62rem;
+        width:90%;
+        display: inline;
+        right:1.5rem;
+        font-size: 1.6rem;
+    }
 
     @include response(phone-mini){
         top:72rem;

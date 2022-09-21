@@ -987,7 +987,11 @@ button {
   }
 
   .validation {
-    top: 52rem;
+    top: 62rem;
+    width: 90%;
+    display: inline;
+    right: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .validation > span {
