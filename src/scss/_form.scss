@@ -380,7 +380,7 @@ input.invalid{
     opacity: 1 !important;
     right:1rem;
 
-    @include response(phone-mini){
+    @include response(phone){
         top:52rem;}
 
     @include response(phone-mini){
@@ -393,6 +393,10 @@ input.invalid{
 
     &>span{
         @include response(phone){
+            width:30rem;
+            margin-right: 2rem !important;
+        }
+        @include response(phone-mini){
             width:30rem;
             margin-right: 2rem !important;
         }

@@ -927,6 +927,10 @@ button {
     font-size: 1.6rem;
   }
 
+  .validation {
+    top: 52rem;
+  }
+
   .validation > span {
     width: 30rem;
     margin-right: 2rem !important;
@@ -964,14 +968,15 @@ button {
   }
 
   .validation {
-    top: 52rem;
-  }
-
-  .validation {
     top: 72rem;
     width: 90%;
     display: inline;
     right: 1.5rem;
     font-size: 1.6rem;
+  }
+
+  .validation > span {
+    width: 30rem;
+    margin-right: 2rem !important;
   }
 }
