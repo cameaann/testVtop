@@ -862,6 +862,7 @@ button {
     width: 100%;
     height: 100vh;
     margin: 0;
+    align-items: flex-start;
   }
 
   .userImage {
@@ -888,6 +889,7 @@ button {
     height: 16rem;
     align-items: flex-start;
     justify-content: flex-end;
+    padding: 1.5rem 0;
   }
 
   .signup__rightbox {
@@ -963,18 +965,24 @@ button {
 
   .sign-footer__description {
     width: 18rem;
+    margin-bottom: 2rem;
   }
 
   .sign-footer {
     font-size: 1.6rem;
+    flex-direction: column;
+    align-content: space-around;
   }
 
   .signup-success-footer__description {
     width: 18rem;
+    margin-bottom: 2rem;
   }
 
   .signup-success-footer {
     font-size: 1.6rem;
+    flex-direction: column;
+    align-content: space-around;
   }
 
   .error-hint {
@@ -1009,6 +1017,13 @@ button {
 
   .hidden {
     display: none;
+  }
+
+  .btn-blue {
+    font-size: 1.8rem;
+    width: 80%;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
   }
 }
 
