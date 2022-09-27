@@ -147,9 +147,12 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    width: 100%;
 
     @include response(phone){
         overflow:visible;
+        height: 100vh;
+        justify-content: center;
     }
 }
 
@@ -310,6 +313,7 @@ input[type="radio"]{
     @include signUpFooter;
     padding-left: 2.08rem;
     margin-bottom: 4.3rem;
+    z-index: 20;
 }
 
 .error-hint{
@@ -340,11 +344,13 @@ input.invalid{
     color: #111111;
     padding: 6.8rem;
     margin-bottom: 7rem;
+    z-index: 20;
 
     .thankYou{
         font-size: 2.2rem;
         font-weight: 500;
         margin-bottom: 1.1rem;
+        z-index: 20;
     }
 }
 .correct{

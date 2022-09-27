@@ -526,6 +526,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
 }
 
 input,
@@ -662,6 +663,7 @@ input[type=radio] {
   margin-top: 2rem;
   padding-left: 2.08rem;
   margin-bottom: 4.3rem;
+  z-index: 20;
 }
 
 .signup-success-footer__description {
@@ -696,12 +698,14 @@ input.invalid {
   color: #111111;
   padding: 6.8rem;
   margin-bottom: 7rem;
+  z-index: 20;
 }
 
 .signup-success .thankYou {
   font-size: 2.2rem;
   font-weight: 500;
   margin-bottom: 1.1rem;
+  z-index: 20;
 }
 
 .correct {
@@ -906,6 +910,8 @@ button {
 
   .wrapper-form {
     overflow: visible;
+    height: 100vh;
+    justify-content: center;
   }
 
   input,
