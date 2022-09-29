@@ -867,6 +867,8 @@ button {
     height: 100vh;
     margin: 0;
     align-items: flex-start;
+    scroll-behavior: auto;
+    overflow: scroll;
   }
 
   .userImage {
