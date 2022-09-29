@@ -522,7 +522,5 @@ async function sendData(userData) {
     });
 
     return response.json();
-
-
 }
 
