@@ -13,11 +13,11 @@
 
     @include response(phone){
         width:100%;
-        height:190rem;
+        // height:100vh;
         margin: 0;
-        align-items: flex-start;
-        scroll-behavior: auto;
-        overflow: scroll;
+        align-items:unset;
+        // scroll-behavior: auto;
+        // overflow: scroll;
     }
 }
 
@@ -113,7 +113,7 @@
             background-position: top 5rem left 16rem;
         }
         @include response(phone){
-            justify-content: space-evenly;
+            // justify-content: space-evenly;
             overflow: scroll;
         }
 
@@ -156,8 +156,8 @@
     width: 100%;
 
     @include response(phone){
-        overflow:visible;
-        height: 100vh;
+        // overflow:visible;
+        // height: 100vh;
         justify-content:unset;
         top:12rem;
 
@@ -512,7 +512,14 @@ input.invalid{
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
 
-
+.clava{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:45rem;
+    background-color: #7C7C7C;
+}
 
 
 
